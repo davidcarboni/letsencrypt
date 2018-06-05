@@ -5,7 +5,9 @@ This documentation leads you through the process of generating a certificate for
 
 This is an "offline" generation in that it requires the domain to be pointed to a temporary address for certificate generation.
 
-So this works best for getting a temporary (90-day) certificate, or where a domain can be taken offline, rather than using Letsencrypt in production.
+So this works best for getting a temporary (90-day) certificate, or where a domain can be taken offline, rather than for a production domain with rolling certificates.
+
+It's a "get you started" approach.
 
 ## Create a VM and log in
 
@@ -51,8 +53,8 @@ Remember to point the DNS name(s) you want to get a certificate for at the VM yo
 
 What we're doing here:
  * Run the container interactively and delete it when it exits
- * Map port 80 on the host to port 80 on the container, so that the container can respond to the challenge from Letsencrypt
- * Map your local letsencrypt directory to /etc/letsencrypt in the container - this ensures you keep the output files when the container exits and deletes
+ * Map ports 80 and 443 on the host VM to ports 80 and 443 on the container, so that the container can respond to the challenge from Letsencrypt
+ * Map your local letsencrypt directory to /etc/letsencrypt in the container - this ensures you have the output files (including the key and certificate) when the container exits and deletes
  * Pass in configuration options (you can skip these and manually respond to prompts)
  * Each -d value is a domain name to be added to the certificate.
 
