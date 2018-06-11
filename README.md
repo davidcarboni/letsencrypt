@@ -36,7 +36,7 @@ Approximately:
     sudo apt update
     sudo apt install docker-ce
     sudo groupadd docker
-    sudo usermod -aG docker $USER
+    sudo usermod -aG docker <your username>
 
 Then log out and log back in again. Hopefully you're all set.
 
